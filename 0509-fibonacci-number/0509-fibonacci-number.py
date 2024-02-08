@@ -1,16 +1,16 @@
 class Solution:
-  def fib(self, n: int) -> int:
-    if n < 2:
-      return n
-
-    dp = [0, 0, 1]
-
-    for i in range(2, n + 1):
-      dp[0] = dp[1]
-      dp[1] = dp[2]
-      dp[2] = dp[0] + dp[1]
-
-    return dp[2]
+  def fib(self, n: int) -> int:    
+    
+    f=[0,1,1]
+    
+    if n == 0 or n==1:
+        return n
+    else:
+        for i in range(2,n):
+            f[0]=f[1]
+            f[1]=f[2]
+            f[2]=f[0]+f[1]
+        return f[2]
 
 
             
