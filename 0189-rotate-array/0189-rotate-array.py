@@ -5,10 +5,9 @@ class Solution:
         Do not return anything, modify nums in-place instead.
         """
         
-        k = k % len(nums)
-        first_half = nums[:-k]
-        second_half = nums[-k:]
-        nums[:]=second_half+first_half
+        k %= len(nums)
+        nums[:] = nums[-k:] + nums[:-k]
+        
         
         
         
