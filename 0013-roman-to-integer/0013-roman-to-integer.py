@@ -2,18 +2,49 @@ class Solution:
     
     def romanToInt(self, s: str) -> int:
         
-        ans = 0
-        roman = {'I': 1, 'V': 5, 'X': 10, 'L': 50,
-                 'C': 100, 'D': 500, 'M': 1000}
-
-        for a, b in zip(s, s[1:]):
-          if roman[a] < roman[b]:
-            ans -= roman[a]
-          else:
-            ans += roman[a]
-
-        return ans + roman[s[-1]]
+        val=0
         
+        if 'IV' in s:
+            val += 4
+            s = s.replace('IV', '')
+
+        if 'IX' in s:
+            val += 9
+            s = s.replace('IX', '')
+
+        if 'XL' in s:
+            val += 40
+            s = s.replace('XL', '')
+
+        if 'XC' in s:
+            val += 90
+            s = s.replace('XC', '')
+
+        if 'CD' in s:
+            val += 400
+            s = s.replace('CD', '')
+
+        if 'CM' in s:
+            val += 900
+            s = s.replace('CM', '')
+
         
+        for i in s:
+            if i == 'I':
+                val += 1
+            elif i == 'V':
+                val += 5
+            elif i == 'X':
+                val += 10
+            elif i == 'L':
+                val += 50
+            elif i == 'C':
+                val += 100
+            elif i == 'D':
+                val += 500
+            elif i == 'M':
+                val += 1000
+                
+        return val
             
         
