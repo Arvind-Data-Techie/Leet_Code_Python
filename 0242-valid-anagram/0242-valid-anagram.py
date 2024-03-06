@@ -1,9 +1,12 @@
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
-        s_list=sorted([*s])
-        t_list=sorted([*t])
-        if s_list==t_list:
-            return True
-        else:
+        
+        if len(s) != len(t):
             return False
+        
+        for c in set(s):
+            if s.count(c) != t.count(c):
+                return False
+        
+        return True
         
