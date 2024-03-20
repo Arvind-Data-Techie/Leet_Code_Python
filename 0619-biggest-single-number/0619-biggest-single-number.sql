@@ -1,7 +1,10 @@
-SELECT MAX(num) as num FROM
-(SELECT num from MyNumbers
-GROUP BY num
-HAVING COUNT(num)=1
-) a
+SELECT ISNULL(
+    (
+        SELECT TOP 1 num
+        FROM MyNumbers
+        GROUP BY num
+        HAVING COUNT(*) = 1
+        ORDER BY num DESC
+    ), NULL) AS num
 
 
