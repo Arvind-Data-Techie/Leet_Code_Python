@@ -1,2 +1,3 @@
 UPDATE salary
-SET sex = IIF(sex = 'm', 'f', 'm');
+SET sex = CASE WHEN Sex='m' THEN 'f' ELSE 'm'
+END;
