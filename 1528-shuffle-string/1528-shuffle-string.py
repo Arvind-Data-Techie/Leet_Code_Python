@@ -1,6 +1,8 @@
 class Solution:
     def restoreString(self, s: str, indices: List[int]) -> str:
-        res = [''] * len(s)
-        for index, alph in enumerate(s):
-            res[indices[index]] = alph
-        return "".join (res)
+        unshuffled_chars = [''] * len(s)
+        for i, idx in enumerate(indices):
+            unshuffled_chars[idx] = s[i]
+        unshuffled_string = ''.join(unshuffled_chars)
+        return unshuffled_string
+            
